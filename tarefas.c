@@ -6,9 +6,22 @@ ERROS criar(Tarefa tarefas[], int *pos){
     if(*pos >= TOTAL)
         return MAX_TAREFA;
 
-    printf("Entre com a prioridade: ");
-    scanf("%d", &tarefas[*pos].prioridade);
-    clearBuffer();
+
+    // Lopping para verificar se o numero da prioridade colocada pelo usuario é maior que 0 e menor que 11
+    do{
+        //Solicita a prioridade para o usuario
+        printf("Entre com a prioridade:(Min: 1  Max: 10): ");
+        scanf("%d", &tarefas[*pos].prioridade);
+        clearBuffer();
+        
+        //Mostra ao usuario que o numero a ser digitado tem que maior que 0 e menor que 11
+        if (tarefas[*pos].prioridade < 1 || tarefas[*pos].prioridade > 10){
+        printf("O valor escrito deve ser entre 1 a 10\n");
+        }
+    } while (tarefas[*pos].prioridade < 1 || tarefas[*pos].prioridade > 10); 
+      //Realiza o looping até a prioridade estar entre 1 e 10
+    
+
     
     printf("Entre com a categoria: ");
     fgets(tarefas[*pos].categoria, 100, stdin);
