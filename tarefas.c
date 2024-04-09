@@ -9,11 +9,16 @@ ERROS criar(Tarefa tarefas[], int *pos){
     printf("Entre com a prioridade: ");
     scanf("%d", &tarefas[*pos].prioridade);
     clearBuffer();
+    
     printf("Entre com a categoria: ");
     fgets(tarefas[*pos].categoria, 100, stdin);
+    //Utilizado o 'Strtok' para remover o \n
+    strtok(tarefas[*pos].categoria, "\n");
 
     printf("Entre com a descricao: ");
     fgets(tarefas[*pos].descricao, 300, stdin);
+    //Utilizado o 'Strtok' para remover o \n
+    strtok(tarefas[*pos].descricao, "\n");
 
     *pos = *pos + 1;
 
