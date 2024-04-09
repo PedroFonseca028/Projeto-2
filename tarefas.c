@@ -6,6 +6,7 @@ ERROS criar(Tarefa tarefas[], int *pos){
     if(*pos >= TOTAL)
         return MAX_TAREFA;
 
+
     // Lopping para verificar se o numero da prioridade colocada pelo usuario é maior que 0 e menor que 11
     do{
         //Solicita a prioridade para o usuario
@@ -20,7 +21,7 @@ ERROS criar(Tarefa tarefas[], int *pos){
     } while (tarefas[*pos].prioridade < 1 || tarefas[*pos].prioridade > 10); 
       //Realiza o looping até a prioridade estar entre 1 e 10
     
-    
+
     
     printf("Entre com a categoria: ");
     fgets(tarefas[*pos].categoria, 100, stdin);
