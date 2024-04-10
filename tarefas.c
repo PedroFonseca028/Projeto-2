@@ -24,12 +24,12 @@ ERROS criar(Tarefa tarefas[], int *pos){
 
     
     printf("Entre com a categoria: ");
-    fgets(tarefas[*pos].categoria, 100, stdin);
+    fgets(tarefas[*pos].categoria, CATEGORIA, stdin);
     //Utilizado o 'Strtok' para remover o \n
     strtok(tarefas[*pos].categoria, "\n");
 
     printf("Entre com a descricao: ");
-    fgets(tarefas[*pos].descricao, 300, stdin);
+    fgets(tarefas[*pos].descricao, DESCRICAO, stdin);
     //Utilizado o 'Strtok' para remover o \n
     strtok(tarefas[*pos].descricao, "\n");
 
