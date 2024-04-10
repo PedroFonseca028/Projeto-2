@@ -7,8 +7,24 @@ int main(){
     Tarefa tarefas[TOTAL];
     int pos;
     ERROS erro = fs[4](tarefas, &pos);
-    if(erro != OK)
+    if(erro != OK){
+        printf("Erro encontrado");
         pos = 0;
+        switch (erro){
+        case MAX_TAREFA:
+            printf("Numero maximo de tarefas atingido\n"); 
+            break;
+        case SEM_TAREFAS:
+            printf("Não há tarefas\n"); 
+            break;
+        case NAO_ENCONTRADO:
+            printf("Tarefas não encontrada\n"); 
+            break;
+        default:
+            break;
+        }
+    }
+     
 
     int opcao;
     do{
