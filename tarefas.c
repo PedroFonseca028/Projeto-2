@@ -66,12 +66,49 @@ ERROS listar(Tarefa tarefas[], int *pos){
     if(*pos == 0)
         return SEM_TAREFAS;
 
-    for(int i=0; i<*pos; i++){
-        printf("Pos: %d\t", i+1);
-        printf("Prioridade: %d\t", tarefas[i].prioridade);
-        printf("Categoria: %s\t", tarefas[i].categoria);
-        printf("Descricao: %s\n", tarefas[i].descricao);
+
+    char categoria_escolhida [CATEGORIA];
+    int categoria_existe = 0; //Variavel para verificar se a categoria existe
+    int sem_valores = 0; //Variavel para verificar se o usuario escolheu nenhum valor 
+
+    //Solicitação do usuario
+    printf("Digite a categoria que você quer ver: ");
+    fgets(categoria_escolhida, CATEGORIA, stdin);
+
+
+    //Se o usuario deixou em branco
+    if(strcmp(categoria_escolhida, "\n") == 0){
+        sem_valores = 1;
     }
+
+    
+    for(int i=0; i<*pos; i++){
+        //Printa a tarefa escolhida pela categoria
+        if(strcmp(tarefas[i].categoria, categoria_escolhida) == 0){
+            printf("Listando a categoria %s: \n", categoria_escolhida);
+            printf("Pos: %d\t", i+1);
+            printf("Prioridade: %d\t", tarefas[i].prioridade);
+            printf("Descricao: %s\n", tarefas[i].descricao);
+            categoria_existe = 1;
+        }  
+    }    
+
+    //Se o usuario nao digitou nada 
+    if(sem_valores){
+        for(int i=0; i<*pos; i++){
+            printf("Pos: %d\t", i+1);
+            printf("Prioridade: %d\t", tarefas[i].prioridade);
+            printf("Categoria: %s\t", tarefas[i].categoria);
+            printf("Descricao: %s\n", tarefas[i].descricao);
+            categoria_existe = 1;
+        }
+    }
+
+    //Se a categoria não existir
+    if (categoria_existe == 0){
+        printf("Categoria %s não existe \n", categoria_escolhida);
+    }
+
 
     return OK;
 }
