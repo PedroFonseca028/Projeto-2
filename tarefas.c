@@ -74,7 +74,7 @@ ERROS listar(Tarefa tarefas[], int *pos){
     //Solicitação do usuario
     printf("Digite a categoria que você quer ver: ");
     fgets(categoria_escolhida, CATEGORIA, stdin);
-
+    strtok(categoria_escolhida, "\n");
 
     //Se o usuario deixou em branco
     if(strcmp(categoria_escolhida, "\n") == 0){
