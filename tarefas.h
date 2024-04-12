@@ -15,7 +15,9 @@ typedef ERROS (*funcao)(Tarefa[], int*);
 ERROS criar(Tarefa tarefas[], int *pos);
 ERROS deletar(Tarefa tarefas[], int *pos);
 ERROS listar(Tarefa tarefas[], int *pos);
+ERROS arquivotxt(Tarefa tarefas[], int *pos);
 ERROS salvar(Tarefa tarefas[], int *pos);
 ERROS carregar(Tarefa tarefas[], int *pos);
+
 
 void clearBuffer();
