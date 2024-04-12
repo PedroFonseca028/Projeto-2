@@ -113,6 +113,33 @@ ERROS listar(Tarefa tarefas[], int *pos){
     return OK;
 }
 
+
+ERROS arquivotxt(Tarefa tarefas[], int *pos){
+
+    char nome_txt [CATEGORIA];
+
+    printf("Digite o nome do arquivo: ");
+    scanf("%s", nome_txt);
+
+    FILE *arquivo = fopen(nome_txt, "w"); 
+
+    if (arquivo == NULL){
+        return ABRIR;
+    }
+
+    for(int i=0; i<*pos; i++){
+        //Fprintf imprime os dados em um arquivo
+        fprintf(arquivo,"Pos: %d\t", i+1);
+        fprintf(arquivo,"Prioridade: %d\t", tarefas[i].prioridade);
+        fprintf(arquivo,"Categoria: %s\t", tarefas[i].categoria);
+        fprintf(arquivo,"Descricao: %s\n", tarefas[i].descricao);
+    }
+
+    fclose(arquivo);
+
+    return OK;
+}
+
 ERROS salvar(Tarefa tarefas[], int *pos){
     FILE *f = fopen("tarefas.bin", "wb");
     if(f == NULL)
