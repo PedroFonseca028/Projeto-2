@@ -32,7 +32,9 @@ int main(){
         printf("1 - Criar tarefa\n");
         printf("2 - Deletar tarefa\n");
         printf("3 - Listar tarefas\n");
-        printf("4 - Salvar em arquivo .txt: \n");
+        printf("4 - Salvar em arquivo '.txt'\n");
+        printf("5 - Salvar tarefas\n");
+        printf("6 - Carregar tarefas\n");
         printf("0 - Sair\n");
         printf("Escolha uma opcao: ");
 
@@ -40,7 +42,7 @@ int main(){
         clearBuffer();
 
         opcao--;
-        if(opcao > 3)
+        if(opcao > 5)
             printf("Opcao invalida\n");
         else if(opcao >= 0)
             fs[opcao](tarefas, &pos);
@@ -63,5 +65,5 @@ int main(){
     
     } while(opcao >= 0);
 
-    fs[4](tarefas, &pos);
+    fs[5](tarefas, &pos);
 }
